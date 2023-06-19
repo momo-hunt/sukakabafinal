@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: hsl(210, 10%, 90%);
+  --bg-2: hsl(210, 10%, 80%);
+  --bg-3: hsl(210, 10%, 70%);
+  --bg-4: hsl(210, 10%, 60%);
+  --bg-5: hsl(210, 10%, 50%);
+
+  --light: hsl(210, 10%, 95%);
+  --dark: hsl(210, 10%, 15%);
+
+  --white: white;
+  --black: black;
+}
+
+body {
+  font-family: sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  margin: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
