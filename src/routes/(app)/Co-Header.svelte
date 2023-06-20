@@ -1,6 +1,7 @@
 <script>
   import { Bars3, Icon, UserCircle } from "svelte-hero-icons";
   import { fly } from "svelte/transition";
+  import { page } from "$app/stores";
 
   let show = false;
 </script>
@@ -11,19 +12,23 @@
       <Icon src={UserCircle} solid size="24" />
     </span>
     <div>
-      <h4>Hi, Hari</h4>
-      <small>Admin</small>
+      <h4>Hi, {$page.data?.user?.name}</h4>
+      <small>{$page.data?.user?.role?.name}</small>
     </div>
   </article>
+
   <section class="dropdown">
     <button class="toggle" on:click={() => (show = !show)}>
       <Icon src={Bars3} size="32" solid />
     </button>
 
     {#if show}
-      <nav class="dropdown-content">
-        <a href="/pemakaian">Pemakaian</a>
-        <a href="/spj">SPJ</a>
+      <nav class="dropdown-content" transition:fly={{ y: 100 }}>
+        <a href="/pemakaian"><h3>Pemakaian</h3></a>
+        <a href="/spj"><h3>SPJ</h3></a>
+        <a href={`/logout?id=${$page.data?.user?.id}`} class="logout"
+          ><h3>Logout</h3></a
+        >
       </nav>
     {/if}
   </section>
@@ -56,7 +61,12 @@
 
   nav.dropdown-content a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--bg-1);
+  }
+
+  nav.dropdown-content a.logout {
+    color: red;
   }
 
   nav.dropdown-content a:hover {

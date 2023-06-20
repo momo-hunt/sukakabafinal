@@ -6,6 +6,7 @@
   $: km.pemakaian = km?.akhir - km?.awal;
 </script>
 
+<input type="hidden" name="collection" value="pemakaian" />
 <section>
   {#if data}
     <div>

@@ -29,7 +29,7 @@
     <a href={`${$page.url.pathname}/pilih-spj`} role="button">Pilih SPJ</a>
 
     <CoForm
-      action="/?/add"
+      action="/pemakaian?/add"
       title="tambah-pemakaian"
       on:process={onProcess}
       on:success={onSuccess}

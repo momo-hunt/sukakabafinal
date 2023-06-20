@@ -13,8 +13,7 @@ const stored = () => {
       const res = await fetch(`/api/${collection}?` + params);
       const respon = await res.json();
 
-      let data = respon;
-      old = { ...old, [collection]: { loading: false, data } };
+      old = { ...old, [collection]: { loading: false, ...respon } };
       set(old);
 
       if (callback) callback();
