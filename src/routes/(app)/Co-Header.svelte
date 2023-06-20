@@ -15,20 +15,18 @@
       <small>Admin</small>
     </div>
   </article>
-  <a
-    href="/#"
-    class="toggle"
-    on:focus={() => (show = true)}
-    on:blur={() => (show = false)}
-  >
-    <Icon src={Bars3} size="32" solid />
+  <section class="dropdown">
+    <button class="toggle" on:click={() => (show = !show)}>
+      <Icon src={Bars3} size="32" solid />
+    </button>
+
     {#if show}
-      <nav class="dropdown" transition:fly={{ y: -100 }}>
-        <a href="/">Beranda</a>
+      <nav class="dropdown-content">
         <a href="/pemakaian">Pemakaian</a>
+        <a href="/spj">SPJ</a>
       </nav>
     {/if}
-  </a>
+  </section>
 </header>
 
 <style>
@@ -36,29 +34,32 @@
     margin-top: 1rem;
   }
 
-  a.toggle {
+  section.dropdown {
     position: relative;
     margin-left: auto;
+  }
+
+  .toggle {
     color: var(--bg-4);
   }
 
-  a.toggle:hover {
+  .toggle:hover {
     color: var(--dark);
   }
 
-  nav.dropdown {
+  nav.dropdown-content {
     position: absolute;
     top: 100%;
     right: 0;
     background: var(--white);
   }
 
-  nav.dropdown a {
+  nav.dropdown-content a {
     display: block;
     padding: 0.5rem 1rem;
   }
 
-  nav.dropdown a:hover {
+  nav.dropdown-content a:hover {
     background: var(--bg-1);
   }
 </style>
